@@ -10,7 +10,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import notesRoutes from './routes/notesRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import studentsRoutes from './routes/studentsRoutes.js';
+import notesRoutes from './routes/notesRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -37,6 +37,6 @@ app.listen(PORT, () => {
 });
 
 app.use(authRoutes);
-app.use(studentsRoutes);
+app.use(notesRoutes);
 
 
