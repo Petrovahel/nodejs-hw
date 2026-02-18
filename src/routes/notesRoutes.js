@@ -12,10 +12,12 @@ import {
   updateNoteSchema,
   createNoteSchema,
   noteIdSchema,
- } from '../validations/notesValidation.js';
+} from '../validations/notesValidation.js';
+import { authenticate } from "../middleware/authenticate.js";
 
 const router = Router();
 
+router.use("/students", authenticate);
 router.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
 router.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
 router.post('/notes', celebrate(createNoteSchema), createNote);
